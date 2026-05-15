@@ -3,782 +3,126 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Faith Ndinda Munee — Executive Virtual Assistant</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
-      --cream: #F7F4EF;
-      --cream-dark: #EDE9E1;
-      --ink: #1A1814;
-      --ink-mid: #4A4640;
-      --ink-light: #8A857D;
-      --gold: #B8945A;
-      --gold-light: #D4B07A;
-      --white: #FFFFFF;
-      --border: rgba(26,24,20,0.1);
-      --border-strong: rgba(26,24,20,0.2);
-      --font-display: 'Cormorant Garamond', serif;
-      --font-body: 'Jost', sans-serif;
-      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .icon-box{
-    width: 70px;
-    height: 70px;
-    background: #f3ece7;
-    border-radius: 20px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    margin-bottom: 20px;
-}
-
-.service-icon{
-    width: 34px;
-    height: 34px;
-    color: #b58b6a;
-    stroke-width: 1.8;
-}
-
-.service-card{
-    transition: all 0.3s ease;
-}
-
-.service-card:hover{
-    transform: translateY(-6px);
-}
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: var(--font-body);
-      background: var(--cream);
-      color: var(--ink);
-      font-size: 15px;
-      line-height: 1.7;
-      font-weight: 300;
-    }
-
-    /* NAV */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.2rem 4rem;
-      background: rgba(247, 244, 239, 0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 0.5px solid var(--border);
-      transition: var(--transition);
-    }
-
-    .nav-logo {
-      font-family: var(--font-display);
-      font-size: 18px;
-      font-weight: 500;
-      color: var(--ink);
-      letter-spacing: 0.02em;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--ink-mid);
-      transition: color var(--transition);
-    }
-
-    .nav-links a:hover { color: var(--gold); }
-
-    .nav-cta {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: var(--ink);
-      border: 0.5px solid var(--border-strong);
-      padding: 0.5rem 1.25rem;
-      transition: all var(--transition);
-    }
-
-    .nav-cta:hover { background: var(--ink); color: var(--cream); }
-
-    .nav-toggle {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 4px;
-      background: none;
-      border: none;
-    }
-
-    .nav-toggle span {
-      display: block;
-      width: 22px;
-      height: 1px;
-      background: var(--ink);
-      transition: var(--transition);
-    }
-
-    .nav-toggle.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
-    .nav-toggle.open span:nth-child(2) { opacity: 0; }
-    .nav-toggle.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
-
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      top: 65px; left: 0; right: 0;
-      background: var(--cream);
-      border-bottom: 0.5px solid var(--border);
-      padding: 1.5rem 2rem;
-      z-index: 99;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
-
-    .mobile-menu.open { display: flex; }
-
-    .mobile-menu a {
-      text-decoration: none;
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--ink-mid);
-    }
-
-    /* HERO */
-    #hero {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      padding-top: 70px;
-    }
-
-    .hero-left {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 5rem 4rem;
-      border-right: 0.5px solid var(--border);
-    }
-
-    .hero-eyebrow {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .hero-eyebrow::before {
-      content: '';
-      display: inline-block;
-      width: 32px;
-      height: 0.5px;
-      background: var(--gold);
-    }
-
-    .hero-name {
-      font-family: var(--font-display);
-      font-size: clamp(52px, 6vw, 80px);
-      font-weight: 500;
-      line-height: 1.05;
-      color: var(--ink);
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-name em { font-style: italic; color: var(--gold); }
-
-    .hero-tagline {
-      font-size: 15px;
-      line-height: 1.8;
-      color: var(--ink-mid);
-      max-width: 420px;
-      margin-bottom: 2.5rem;
-      font-weight: 300;
-    }
-
-    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-
-    .btn-primary {
-      display: inline-block;
-      text-decoration: none;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      background: var(--ink);
-      color: var(--cream);
-      padding: 0.85rem 2rem;
-      transition: all var(--transition);
-    }
-
-    .btn-primary:hover { background: var(--gold); }
-
-    .btn-secondary {
-      display: inline-block;
-      text-decoration: none;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--ink);
-      border: 0.5px solid var(--border-strong);
-      padding: 0.85rem 2rem;
-      transition: all var(--transition);
-    }
-
-    .btn-secondary:hover { background: var(--cream-dark); }
-
-    .hero-right {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 5rem 4rem;
-      background: var(--cream-dark);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-circle {
-      position: absolute;
-      border-radius: 50%;
-      border: 0.5px solid var(--border-strong);
-      opacity: 0.4;
-    }
-
-    .hero-circle-1 { top: -60px; right: -60px; width: 300px; height: 300px; }
-    .hero-circle-2 { top: 20px; right: 20px; width: 200px; height: 200px; opacity: 0.25; }
-
-    .hero-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
-      border: 0.5px solid var(--border);
-      margin-bottom: 2rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-stat { background: var(--cream-dark); padding: 1.5rem; }
-
-    .hero-stat-num {
-      font-family: var(--font-display);
-      font-size: 42px;
-      font-weight: 500;
-      color: var(--ink);
-      line-height: 1;
-      margin-bottom: 0.25rem;
-    }
-
-    .hero-stat-label { font-size: 11px; color: var(--ink-light); font-weight: 400; }
-
-    .hero-availability {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 12px;
-      color: var(--ink-mid);
-      position: relative;
-      z-index: 1;
-    }
-
-    .availability-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: #5A8A6A;
-      animation: pulse 2s infinite;
-      flex-shrink: 0;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.6; transform: scale(1.3); }
-    }
-
-    /* SECTIONS */
-    section { padding: 6rem 4rem; }
-
-    .section-header {
-      display: flex;
-      align-items: baseline;
-      gap: 1.5rem;
-      margin-bottom: 3.5rem;
-    }
-
-    .section-num {
-      font-family: var(--font-display);
-      font-size: 13px;
-      font-weight: 400;
-      color: var(--gold);
-      font-style: italic;
-      flex-shrink: 0;
-    }
-
-    .section-title {
-      font-family: var(--font-display);
-      font-size: clamp(32px, 4vw, 48px);
-      font-weight: 500;
-      line-height: 1.1;
-      color: var(--ink);
-      flex-shrink: 0;
-    }
-
-    .section-line { flex: 1; height: 0.5px; background: var(--border); }
-
-    /* ABOUT */
-    #about {
-      background: var(--white);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: start;
-    }
-
-    .about-text p {
-      font-size: 15px;
-      color: var(--ink-mid);
-      line-height: 1.9;
-      font-weight: 300;
-      margin-bottom: 1.25rem;
-    }
-
-    .about-text p:last-child { margin-bottom: 0; }
-    .about-text strong { font-weight: 500; color: var(--ink); }
-
-    .about-credentials {
-      display: flex;
-      flex-direction: column;
-      gap: 1px;
-      background: var(--border);
-      border: 0.5px solid var(--border);
-    }
-
-    .credential-item {
-      background: var(--white);
-      padding: 1.5rem;
-      transition: background var(--transition);
-    }
-
-    .credential-item:hover { background: var(--cream); }
-
-    .credential-label {
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.4rem;
-    }
-
-    .credential-title { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 0.2rem; }
-    .credential-sub { font-size: 12px; color: var(--ink-light); font-weight: 300; }
-
-    /* SERVICES */
-    #services { background: var(--cream); }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 0.5px solid var(--border);
-    }
-
-    .service-card {
-      background: var(--cream);
-      padding: 2rem 1.75rem;
-      transition: background var(--transition);
-    }
-
-    .service-card:hover { background: var(--white); }
-    .service-card:hover .service-icon { transform: scale(1.15); }
-
-    .service-icon {
-      font-size: 28px;
-      margin-bottom: 1.25rem;
-      display: block;
-      transition: transform var(--transition);
-      line-height: 1;
-    }
-
-    .service-title {
-      font-family: var(--font-display);
-      font-size: 20px;
-      font-weight: 500;
-      color: var(--ink);
-      margin-bottom: 0.75rem;
-      line-height: 1.3;
-    }
-
-    .service-desc { font-size: 13px; color: var(--ink-mid); line-height: 1.8; font-weight: 300; }
-
-    /* TOOLS */
-    #tools { background: var(--ink); color: var(--cream); }
-    #tools .section-title { color: var(--cream); }
-    #tools .section-num { color: var(--gold-light); }
-    #tools .section-line { background: rgba(255,255,255,0.1); }
-
-    .tools-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-      background: rgba(255,255,255,0.08);
-      border: 0.5px solid rgba(255,255,255,0.08);
-    }
-
-    .tool-item {
-      background: var(--ink);
-      padding: 2rem 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      transition: background var(--transition);
-    }
-
-    .tool-item:hover { background: #272320; }
-
-    .tool-icon-wrap {
-      width: 44px; height: 44px;
-      border: 0.5px solid rgba(255,255,255,0.12);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      transition: border-color var(--transition);
-    }
-
-    .tool-item:hover .tool-icon-wrap { border-color: var(--gold); }
-
-    .tool-name { font-size: 13px; font-weight: 500; color: var(--cream); }
-    .tool-desc { font-size: 11px; color: rgba(247,244,239,0.45); font-weight: 300; line-height: 1.6; }
-
-    /* WORK SAMPLES */
-    #samples { background: var(--white); }
-
-    .samples-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1px;
-      background: var(--border);
-      border: 0.5px solid var(--border);
-    }
-
-    .sample-row {
-      background: var(--white);
-      display: grid;
-      grid-template-columns: 80px 1fr auto;
-      align-items: start;
-      gap: 2rem;
-      padding: 2rem;
-      transition: background var(--transition);
-    }
-
-    .sample-row:hover { background: var(--cream); }
-
-    .sample-num {
-      font-family: var(--font-display);
-      font-size: 36px;
-      font-weight: 500;
-      color: var(--cream-dark);
-      line-height: 1;
-      transition: color var(--transition);
-    }
-
-    .sample-row:hover .sample-num { color: var(--gold-light); }
-
-    .sample-title { font-size: 16px; font-weight: 500; color: var(--ink); margin-bottom: 0.4rem; }
-    .sample-desc { font-size: 13px; color: var(--ink-mid); line-height: 1.7; font-weight: 300; }
-
-    .sample-tag {
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--gold);
-      border: 0.5px solid var(--gold-light);
-      padding: 0.3rem 0.75rem;
-      white-space: nowrap;
-      align-self: flex-start;
-    }
-
-    /* CONTACT */
-    #contact {
-      background: var(--cream-dark);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: start;
-    }
-
-    .contact-intro {
-      font-family: var(--font-display);
-      font-size: clamp(28px, 3.5vw, 42px);
-      font-weight: 500;
-      line-height: 1.2;
-      color: var(--ink);
-      margin-bottom: 1.5rem;
-    }
-
-    .contact-intro em { font-style: italic; color: var(--gold); }
-
-    .contact-sub {
-      font-size: 14px;
-      color: var(--ink-mid);
-      line-height: 1.8;
-      font-weight: 300;
-      margin-bottom: 2rem;
-    }
-
-    .contact-links { display: flex; flex-direction: column; gap: 0; }
-
-    .contact-link {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      font-size: 13px;
-      color: var(--ink-mid);
-      padding: 0.85rem 0;
-      border-bottom: 0.5px solid var(--border);
-      transition: color var(--transition);
-    }
-
-    .contact-link:hover { color: var(--gold); }
-    .contact-link-icon { font-size: 15px; width: 20px; text-align: center; flex-shrink: 0; }
-
-    .contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
-
-    .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
-
-    .form-label {
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--ink-light);
-    }
-
-    .form-input, .form-textarea {
-      font-family: var(--font-body);
-      font-size: 14px;
-      font-weight: 300;
-      color: var(--ink);
-      background: var(--white);
-      border: 0.5px solid var(--border-strong);
-      padding: 0.85rem 1rem;
-      outline: none;
-      transition: border-color var(--transition);
-      resize: none;
-      line-height: 1.6;
-      width: 100%;
-    }
-
-    .form-input:focus, .form-textarea:focus { border-color: var(--gold); }
-    .form-input::placeholder, .form-textarea::placeholder { color: var(--ink-light); }
-
-    .form-btn {
-      font-family: var(--font-body);
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      background: var(--ink);
-      color: var(--cream);
-      border: none;
-      padding: 1rem 2rem;
-      cursor: pointer;
-      transition: background var(--transition);
-      align-self: flex-start;
-    }
-
-    .form-btn:hover { background: var(--gold); }
-    .form-btn:disabled { opacity: 0.6; cursor: not-allowed; }
-
-    .form-success {
-      display: none;
-      font-size: 13px;
-      color: #5A8A6A;
-      padding: 0.75rem 1rem;
-      border: 0.5px solid #5A8A6A;
-    }
-
-    /* FOOTER */
-    footer {
-      background: var(--ink);
-      color: var(--cream);
-      padding: 2rem 4rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .footer-name { font-family: var(--font-display); font-size: 16px; font-weight: 500; }
-    .footer-copy { font-size: 11px; color: rgba(247,244,239,0.4); font-weight: 300; }
-
-    /* SCROLL REVEAL */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-
-    .reveal.visible { opacity: 1; transform: none; }
-
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-      nav { padding: 1.2rem 2rem; }
-      .nav-links, .nav-cta { display: none; }
-      .nav-toggle { display: flex; }
-
-      section { padding: 4rem 2rem; }
-
-      #hero { grid-template-columns: 1fr; min-height: auto; }
-      .hero-left { padding: 5rem 2rem 3rem; border-right: none; border-bottom: 0.5px solid var(--border); }
-      .hero-right { padding: 3rem 2rem; }
-
-      #about { grid-template-columns: 1fr; gap: 2.5rem; }
-      .services-grid { grid-template-columns: 1fr 1fr; }
-      .tools-grid { grid-template-columns: 1fr 1fr; }
-
-      .sample-row { grid-template-columns: 60px 1fr; }
-      .sample-tag { display: none; }
-
-      #contact { grid-template-columns: 1fr; gap: 2.5rem; }
-      footer { padding: 1.5rem 2rem; }
-    }
-
-    @media (max-width: 600px) {
-      .services-grid { grid-template-columns: 1fr; }
-      .hero-stats { grid-template-columns: 1fr 1fr; }
-    }
-
-    .tool-icon-wrap{
-    width: 65px;
-    height: 65px;
-
-    background: #f3ece7;
-    border-radius: 18px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    margin-bottom: 18px;
-
-    transition: all 0.3s ease;
-}
-
-.tool-icon{
-    width: 30px;
-    height: 30px;
-
-    color: #b58b6a;
-    stroke-width: 1.8;
-}
-
-.tool-item{
-    transition: all 0.3s ease;
-}
-
-.tool-item:hover{
-    transform: translateY(-6px);
-}
-
-.tool-item:hover .tool-icon-wrap{
-    background: #eadfd8;
-}
-  </style>
+  <link rel="stylesheet" href="VA.css">
 </head>
+
 <body>
 
   <!-- NAV -->
+
   <nav>
-    <div class="nav-logo">Faith Ndinda Munee</div>
+
+    <div class="nav-logo">
+      Faith Ndinda Munee
+    </div>
+
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#tools">Tools</a></li>
-      <li><a href="#samples">Work</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <a href="#contact" class="nav-cta">Hire Me</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
+
+    <a href="#contact" class="nav-cta">
+      Hire Me
+    </a>
+
+    <button class="nav-toggle" id="navToggle">
+      <span></span>
+      <span></span>
+      <span></span>
     </button>
+
   </nav>
 
   <!-- MOBILE MENU -->
+
   <div class="mobile-menu" id="mobileMenu">
+
     <a href="#about" onclick="closeMobileMenu()">About</a>
     <a href="#services" onclick="closeMobileMenu()">Services</a>
     <a href="#tools" onclick="closeMobileMenu()">Tools</a>
-    <a href="#samples" onclick="closeMobileMenu()">Work Samples</a>
     <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+
   </div>
 
   <!-- HERO -->
+
   <section id="hero">
+
     <div class="hero-left">
-      <p class="hero-eyebrow">Executive Virtual Assistant</p>
-      <h1 class="hero-name">Faith <em>Ndinda</em><br>Munee</h1>
-      <p class="hero-tagline">Empowering corporate executives to lead with clarity — through strategic administrative support, seamless scheduling, and smart use of technology.</p>
+
+      <p class="hero-eyebrow">
+        Executive Virtual Assistant
+      </p>
+
+      <h1 class="hero-name">
+        Faith <em>Ndinda</em><br>
+        Munee
+      </h1>
+
+      <p class="hero-tagline">
+        Empowering corporate executives to lead with clarity through strategic administrative support, seamless scheduling, and smart technology systems.
+      </p>
+
       <div class="hero-actions">
-        <a href="#services" class="btn-primary">View Services</a>
-        <a href="#contact" class="btn-secondary">Get in Touch</a>
+
+        <a href="#services" class="btn-primary">
+          View Services
+        </a>
+
+        <a href="#contact" class="btn-secondary">
+          Get in Touch
+        </a>
+
       </div>
+
     </div>
+
     <div class="hero-right">
+
       <div class="hero-circle hero-circle-1"></div>
       <div class="hero-circle hero-circle-2"></div>
+
       <div class="hero-stats">
+
         <div class="hero-stat">
           <div class="hero-stat-num">6+</div>
           <div class="hero-stat-label">Core services offered</div>
         </div>
+
         <div class="hero-stat">
           <div class="hero-stat-num">2</div>
           <div class="hero-stat-label">Professional credentials</div>
         </div>
+
         <div class="hero-stat">
           <div class="hero-stat-num">8+</div>
           <div class="hero-stat-label">Tools mastered</div>
         </div>
-        <div class="hero-stat">
+
+         <div class="hero-stat">
           <div class="hero-stat-num">CS</div>
           <div class="hero-stat-label">Tech-forward background</div>
         </div>
+
       </div>
+
       <div class="hero-availability">
         <div class="availability-dot"></div>
         Available for remote executive support · Nairobi, Kenya
       </div>
+
     </div>
+
   </section>
 
   <!-- ABOUT -->
@@ -810,7 +154,7 @@
         <div class="credential-item">
           <div class="credential-label">Education</div>
           <div class="credential-title">Bachelor of Science — Computer Science</div>
-          <div class="credential-sub">Pwani University</div>
+          <div class="credential-sub">Technology, Systems & Analytical Thinking</div>
         </div>
         <div class="credential-item">
           <div class="credential-label">Specialization</div>
@@ -819,336 +163,427 @@
         </div>
       </div>
     </div>
-  </section>
+  </section
 
-  <!-- SERVICES -->
-  <section id="services">
-    <div class="section-header reveal">
-      <span class="section-num">02</span>
-      <h2 class="section-title">Services</h2>
-      <div class="section-line"></div>
-    </div>
-   <div class="services-grid reveal">
-
-  <div class="service-card">
-    <div class="icon-box">
-      <i data-lucide="calendar-days" class="service-icon"></i>
-    </div>
-    <h3 class="service-title">Calendar & Schedule Management</h3>
-    <p class="service-desc">
-      Organizing executive calendars, scheduling meetings across time zones,
-      blocking focus time, and ensuring zero conflicts or missed commitments.
-    </p>
-  </div>
-
-  <div class="service-card">
-    <div class="icon-box">
-      <i data-lucide="inbox" class="service-icon"></i>
-    </div>
-    <h3 class="service-title">Email Inbox Organization</h3>
-    <p class="service-desc">
-      Filtering, labelling, and prioritizing your inbox. Drafting responses,
-      flagging urgent items, and maintaining inbox zero — daily.
-    </p>
-  </div>
-
-  <div class="service-card">
-    <div class="icon-box">
-      <i data-lucide="file-text" class="service-icon"></i>
-    </div>
-    <h3 class="service-title">Document & Presentation Prep</h3>
-    <p class="service-desc">
-      Creating polished Google Docs, slides, and reports formatted and ready
-      for boardroom presentation or client delivery.
-    </p>
-  </div>
-
-  <div class="service-card">
-    <div class="icon-box">
-      <i data-lucide="folder-kanban" class="service-icon"></i>
-    </div>
-    <h3 class="service-title">Task & Project Tracking</h3>
-    <p class="service-desc">
-      Setting up Trello boards, tracking deliverables, managing deadlines,
-      and keeping your team's work organized and visible.
-    </p>
-  </div>
-
-  <div class="service-card">
-    <div class="icon-box">
-      <i data-lucide="bot" class="service-icon"></i>
-    </div>
-    <h3 class="service-title">AI-Assisted Research</h3>
-    <p class="service-desc">
-      Using AI tools to gather insights, summarize content, and prepare concise
-      briefings for faster executive decision-making.
-    </p>
-  </div>
-
-  <div class="service-card">
-    <div class="icon-box">
-      <i data-lucide="palette" class="service-icon"></i>
-    </div>
-    <h3 class="service-title">Visual Content & Design</h3>
-    <p class="service-desc">
-      Designing professional presentations, branded graphics, and visual content
-      using Canva — aligned to your company's identity.
-    </p>
-  </div>
-</div>
-  </section>
-
-  <!-- TOOLS -->
-  <section id="tools">
-
-  <div class="section-header reveal">
-    <span class="section-num">03</span>
-    <h2 class="section-title">Tools & Technology</h2>
-    <div class="section-line"></div>
-  </div>
-
-  <div class="tools-grid reveal">
-
-    <div class="tool-item">
-      <div class="tool-icon-wrap">
-        <i data-lucide="folder-open" class="tool-icon"></i>
-      </div>
-      <div class="tool-name">Google Workspace</div>
-      <div class="tool-desc">Docs, Slides, Tasks & Drive — full suite</div>
-    </div>
-
-    <div class="tool-item">
-      <div class="tool-icon-wrap">
-        <i data-lucide="calendar-days" class="tool-icon"></i>
-      </div>
-      <div class="tool-name">Google Calendar</div>
-      <div class="tool-desc">Executive scheduling & multi-timezone management</div>
-    </div>
-
-    <div class="tool-item">
-      <div class="tool-icon-wrap">
-        <i data-lucide="mail" class="tool-icon"></i>
-      </div>
-      <div class="tool-name">Email Management</div>
-      <div class="tool-desc">Gmail organization, filtering & SOP creation</div>
-    </div>
-
-    <div class="tool-item">
-      <div class="tool-icon-wrap">
-        <i data-lucide="kanban-square" class="tool-icon"></i>
-      </div>
-      <div class="tool-name">Trello</div>
-      <div class="tool-desc">Board setup, task tracking & team workflows</div>
-    </div>
-
-    <div class="tool-item">
-      <div class="tool-icon-wrap">
-        <i data-lucide="palette" class="tool-icon"></i>
-      </div>
-      <div class="tool-name">Canva</div>
-      <div class="tool-desc">Branded visuals, decks & infographics</div>
-    </div>
-
-    <div class="tool-item">
-      <div class="tool-icon-wrap">
-        <i data-lucide="bot" class="tool-icon"></i>
-      </div>
-      <div class="tool-name">AI Tools</div>
-      <div class="tool-desc">Research, summarization & content generation</div>
-    </div>
-
-    <div class="tool-item">
-      <div class="tool-icon-wrap">
-        <i data-lucide="presentation" class="tool-icon"></i>
-      </div>
-      <div class="tool-name">Google Slides</div>
-      <div class="tool-desc">Executive presentations & pitch decks</div>
-    </div>
-
-    <div class="tool-item">
-      <div class="tool-icon-wrap">
-        <i data-lucide="cloud" class="tool-icon"></i>
-      </div>
-      <div class="tool-name">Google Drive</div>
-      <div class="tool-desc">File organization & secure document sharing</div>
-    </div>
-
-  </div>
+  <!-- SERVICES --> 
+   <section id="services">
+    <div class="section-header reveal"> 
+      <span class="section-num">02</span> 
+      <h2 class="section-title">Services</h2> 
+      <div class="section-line"></div> 
+    </div> 
+    <div class="services-grid reveal"> 
+      <div class="service-card"> 
+        <div class="icon-box">
+           <i data-lucide="calendar-days" class="service-icon"></i> 
+        </div> 
+        <h3 class="service-title">Calendar & Schedule Management</h3> 
+        <p class="service-desc"> Organizing executive calendars, scheduling meetings across time zones, blocking focus time, and ensuring zero conflicts or missed commitments. </p> 
+      </div> 
+      <div class="service-card"> 
+        <div class="icon-box"> 
+          <i data-lucide="inbox" class="service-icon"></i> 
+        </div>
+         <h3 class="service-title">Email Inbox Organization</h3> 
+         <p class="service-desc"> Filtering, labelling, and prioritizing your inbox. Drafting responses, flagging urgent items, and maintaining inbox zero — daily. </p> 
+      </div> 
+      <div class="service-card"> 
+        <div class="icon-box">
+           <i data-lucide="file-text" class="service-icon"></i>
+           </div> <h3 class="service-title">Document & Presentation Prep</h3> 
+           <p class="service-desc"> Creating polished Google Docs, slides, and reports formatted and ready for boardroom presentation or client delivery. </p> 
+          </div> 
+          <div class="service-card"> 
+            <div class="icon-box">
+              <i data-lucide="folder-kanban" class="service-icon"></i> 
+            </div> <h3 class="service-title">Task & Project Tracking</h3> 
+            <p class="service-desc"> Setting up Trello boards, tracking deliverables, managing deadlines, and keeping your team's work organized and visible. </p> 
+          </div> 
+          <div class="service-card"> 
+            <div class="icon-box"> 
+              <i data-lucide="bot" class="service-icon"></i> 
+          </div> 
+            <h3 class="service-title">AI-Assisted Research</h3> 
+            <p class="service-desc"> Using AI tools to gather insights, summarize content, and prepare concise briefings for faster executive decision-making. </p> 
+          </div> 
+          <div class="service-card"> 
+            <div class="icon-box"> 
+              <i data-lucide="palette" class="service-icon"></i> 
+            </div> 
+            <h3 class="service-title">Visual Content & Design</h3> 
+            <p class="service-desc"> Designing professional presentations, branded graphics, and visual content using Canva — aligned to your company's identity. </p> 
+          </div> 
+        </div> 
+      </section> 
+      <!-- TOOLS --> 
+      <section id="tools"> 
+        <div class="section-header reveal"> 
+          <span class="section-num">03</span> 
+          <h2 class="section-title">Tools & Technology</h2> 
+          <div class="section-line"></div> 
+        </div> 
+        <div class="tools-grid reveal"> 
+          <div class="tool-item"> 
+            <div class="tool-icon-wrap"> 
+              <i data-lucide="folder-open" class="tool-icon"></i> 
+            </div> 
+            <div class="tool-name">Google Workspace</div> 
+            <div class="tool-desc">Docs, Slides, Tasks & Drive — full suite</div> 
+          </div> <div class="tool-item"> 
+            <div class="tool-icon-wrap"> 
+              <i data-lucide="calendar-days" class="tool-icon"></i> 
+            </div> 
+            <div class="tool-name">Google Calendar</div> 
+            <div class="tool-desc">Executive scheduling & multi-timezone management</div> 
+          </div> 
+          <div class="tool-item"> 
+            <div class="tool-icon-wrap"> 
+              <i data-lucide="mail" class="tool-icon"></i> 
+            </div> 
+            <div class="tool-name">Email Management</div> 
+            <div class="tool-desc">Gmail organization, filtering & SOP creation</div> 
+          </div> 
+          <div class="tool-item"> 
+            <div class="tool-icon-wrap"> 
+              <i data-lucide="kanban-square" class="tool-icon"></i> 
+            </div> <div class="tool-name">Trello</div> 
+            <div class="tool-desc">Board setup, task tracking & team workflows</div> 
+          </div> 
+          <div class="tool-item"> 
+            <div class="tool-icon-wrap"> 
+              <i data-lucide="palette" class="tool-icon"></i> 
+            </div> 
+            <div class="tool-name">Canva</div> 
+            <div class="tool-desc">Branded visuals, decks & infographics</div> 
+          </div> <div class="tool-item"> 
+            <div class="tool-icon-wrap"> 
+              <i data-lucide="bot" class="tool-icon"></i> 
+            </div> 
+            <div class="tool-name">AI Tools</div> 
+            <div class="tool-desc">Research, summarization & content generation</div> 
+          </div> 
+          <div class="tool-item"> 
+            <div class="tool-icon-wrap"> 
+              <i data-lucide="presentation" class="tool-icon"></i> 
+            </div> 
+            <div class="tool-name">Google Slides</div> 
+            <div class="tool-desc">Executive presentations & pitch decks</div> 
+          </div> <div class="tool-item"> 
+            <div class="tool-icon-wrap"> 
+              <i data-lucide="cloud" class="tool-icon"></i> 
+            </div> 
+            <div class="tool-name">Google Drive</div> 
+            <div class="tool-desc">File organization & secure document sharing</div> 
+          </div> 
+        </div> 
+      </section> 
+ <!-- WORK SAMPLES --> 
+  <section id="samples"> 
+    <div class="section-header reveal"> 
+      <span class="section-num">04</span> 
+      <h2 class="section-title">Work Samples</h2> 
+      <div class="section-line"></div> 
+    </div> <div class="samples-list reveal"> 
+      <div class="sample-row"> <div class="sample-num">01</div> 
+      <div> <p class="sample-title">Executive Weekly Schedule — Google Calendar Setup</p> 
+        <p class="sample-desc">Simulated a 5-day executive calendar in Google Calendar, applying professional VA scheduling practices including prioritization-based time-blocking, color-coded meeting organization, 
+          recurring team syncs, and buffer management for seamless calendar coordination.</p> 
+      </div> 
+      <span class="sample-tag">Calendar</span> 
+    </div> 
+    <div class="sample-row"> 
+      <div class="sample-num">02</div> 
+      <div> 
+        <p class="sample-title">Inbox Zero System — Email Organization Framework</p> 
+        <p class="sample-desc">Designed a Gmail label and filter system for a busy executive inbox with categories: urgent, pending reply, delegate, and archive — plus a written SOP for daily inbox management.</p> 
+      </div> 
+      <span class="sample-tag">Email</span> 
+    </div> <div class="sample-row"> 
+      <div class="sample-num">03</div> 
+      <div> 
+        <p class="sample-title">Project Tracker — Trello Board Template</p> 
+        <p class="sample-desc">Coordinated and structured a Trello-based workflow system for a 5-person SaaS product launch team, including task assignment, deadline tracking, workflow organization, progress monitoring, and executive visibility reporting.</p> 
+      </div> 
+      <span class="sample-tag">Trello</span> 
+    </div> 
+    <div class="sample-row"> <div class="sample-num">04</div> 
+    <div> 
+      <p class="sample-title">Executive Brief — AI-Assisted Research Summary</p> 
+      <p class="sample-desc">Used AI tools to compile a 1-page competitor analysis brief, formatted as a clean Google Doc with key findings, data highlights, and recommended executive actions.</p> 
+    </div> 
+    <span class="sample-tag">Research</span> 
+  </div> 
+</div> 
 </section>
-
-  <!-- WORK SAMPLES -->
-  <section id="samples">
-    <div class="section-header reveal">
-      <span class="section-num">04</span>
-      <h2 class="section-title">Work Samples</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="samples-list reveal">
-      <div class="sample-row">
-        <div class="sample-num">01</div>
-        <div>
-          <p class="sample-title">Executive Weekly Schedule — Google Calendar Setup</p>
-          <p class="sample-desc">Simulated a 5-day executive calendar in Google Calendar, applying professional VA scheduling practices including prioritization-based time-blocking, color-coded meeting organization, recurring team syncs, and buffer management for seamless calendar coordination.</p>
-        </div>
-        <span class="sample-tag">Calendar</span>
-      </div>
-      <div class="sample-row">
-        <div class="sample-num">02</div>
-        <div>
-          <p class="sample-title">Inbox Zero System — Email Organization Framework</p>
-          <p class="sample-desc">Designed a Gmail label and filter system for a busy executive inbox with categories: urgent, pending reply, delegate, and archive — plus a written SOP for daily inbox management.</p>
-        </div>
-        <span class="sample-tag">Email</span>
-      </div>
-      <div class="sample-row">
-        <div class="sample-num">03</div>
-        <div>
-          <p class="sample-title">Project Tracker — Trello Board Template</p>
-          <p class="sample-desc">Coordinated and structured a Trello-based workflow system for a 5-person SaaS product launch team, including task assignment, deadline tracking, workflow organization, progress monitoring, and executive visibility reporting.</p>
-        </div>
-        <span class="sample-tag">Trello</span>
-      </div>
-      <div class="sample-row">
-        <div class="sample-num">04</div>
-        <div>
-          <p class="sample-title">Executive Brief — AI-Assisted Research Summary</p>
-          <p class="sample-desc">Used AI tools to compile a 1-page competitor analysis brief, formatted as a clean Google Doc with key findings, data highlights, and recommended executive actions.</p>
-        </div>
-        <span class="sample-tag">Research</span>
-      </div>
-    </div>
-  </section>
-
   <!-- CONTACT -->
+
   <section id="contact">
+
     <div>
+
       <div class="section-header reveal">
+
         <span class="section-num">05</span>
-        <h2 class="section-title">Get in Touch</h2>
+
+        <h2 class="section-title">
+          Get in Touch
+        </h2>
+
         <div class="section-line"></div>
+
       </div>
-      <p class="contact-intro reveal">Let's work <em>together</em> to free your time and sharpen your focus.</p>
-      <p class="contact-sub reveal">Available for remote executive support. I work best with corporate executives who need a reliable, tech-savvy assistant to handle the details — so they can focus on what matters most.</p>
-      <div class="contact-links reveal">
-        <a href="mailto:ndindafaith9101@gmail.com" class="contact-link">
-          <span class="contact-link-icon">✉</span> ndindafaith9101@gmail.com
-        </a>
-        <a href="https://linkedin.com/in/faithmunee" target="_blank" class="contact-link">
-          <span class="contact-link-icon">in</span> www.linkedin.com/in/faithndindamunee
-        </a>
-        <a href="#" class="contact-link">
-          <span class="contact-link-icon">📍</span> Nairobi, Kenya · Remote worldwide
-        </a>
-      </div>
-    </div>
+
+            <p class="contact-intro reveal">Let's work <em>together</em> to free your time and sharpen your focus.</p>
+            <p class="contact-sub reveal">Available for remote executive support. I work best with corporate executives who need a reliable, 
+            tech-savvy assistant to handle the details — so they can focus on what matters most.</p>
+            
+            <div class="contact-links reveal">
+              <a href="mailto:faithmunee@email.com" class="contact-link">
+              <span class="contact-link-icon">✉</span> ndindafaith9101@gmail.com
+              </a>
+              <a href="https://linkedin.com/in/faithmunee" target="_blank" class="contact-link">
+              <span class="contact-link-icon">in</span> www.linkedin.com/in/faithndindamunee
+              </a>
+              <a href="#" class="contact-link">
+              <span class="contact-link-icon">📍</span> Nairobi, Kenya · Remote worldwide
+              </a>
+            </div>
+
+     </div>
+
     <div class="reveal">
-       <form class="contact-form" id="contactForm" action="https://formspree.io/f/xqenvwzw" method="POST">
+
+      <form
+        class="contact-form"
+        id="contactForm"
+        action="https://formspree.io/f/xqenvwzw"
+        method="POST"
+      >
+
         <div class="form-group">
           <label class="form-label" for="name">Full Name</label>
-          <input class="form-input" id="name" name="name" type="text" placeholder="Your name" required />
+
+          <input
+            class="form-input"
+            id="name"
+            name="name"
+            type="text"
+            placeholder="Your name"
+            required
+          />
         </div>
+
         <div class="form-group">
-          <label class="form-label" for="email">Email Address</label>
-          <input class="form-input" id="email" name="email" type="email" placeholder="your@email.com" required />
+
+          <label class="form-label" for="email">
+            Email Address
+          </label>
+
+          <input
+            class="form-input"
+            id="email"
+            name="email"
+            type="email"
+            placeholder="your@email.com"
+            required
+          />
+
         </div>
+
         <div class="form-group">
-          <label class="form-label" for="subject">Subject</label>
-          <input class="form-input" id="subject" name="subject" type="text" placeholder="How can I help you?" required />
+
+          <label class="form-label" for="subject">
+            Subject
+          </label>
+
+          <input
+            class="form-input"
+            id="subject"
+            name="subject"
+            type="text"
+            placeholder="Subject"
+            required
+          />
+
         </div>
+
         <div class="form-group">
-          <label class="form-label" for="message">Message</label>
-          <textarea class="form-textarea" id="message" name="message" rows="5" placeholder="Tell me about your needs..." required></textarea>
+
+          <label class="form-label" for="message">
+            Message
+          </label>
+
+          <textarea
+            class="form-textarea"
+            id="message"
+            name="message"
+            rows="5"
+            placeholder="Tell me about your needs..."
+            required
+          ></textarea>
+
         </div>
-        <button type="submit" class="form-btn">Send Message</button>
-        <div class="form-success" id="formSuccess">✓ Thank you! I'll be in touch within 24 hours.</div>
+
+        <button type="submit" class="form-btn">
+          Send Message
+        </button>
+
+        <div class="form-success" id="formSuccess">
+          ✓ Thank you! I'll be in touch within 24 hours.
+        </div>
+
         <div class="form-error" id="formError"></div>
+
       </form>
+
     </div>
+
   </section>
 
   <!-- FOOTER -->
+
   <footer>
-    <div class="footer-name">Faith Ndinda Munee</div>
-    <div class="footer-copy">© 2025 · Executive Virtual Assistant · Nairobi, Kenya</div>
+
+    <div class="footer-name">
+      Faith Ndinda Munee
+    </div>
+
+    <div class="footer-copy">
+      © 2026 · Executive Virtual Assistant
+    </div>
+
   </footer>
 
-   <script src="https://unpkg.com/lucide@latest"></script>
-   <div class="tool-icon-wrap">
-   <i data-lucide="folder-open" class="tool-icon"></i>
-</div>
+  <!-- LUCIDE -->
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- SCRIPT -->
 
   <script>
+
     // Scroll reveal
+
     const reveals = document.querySelectorAll('.reveal');
+
     const observer = new IntersectionObserver((entries) => {
+
       entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+
+        if(entry.isIntersecting){
+
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, i * 80);
+
           observer.unobserve(entry.target);
         }
+
       });
-    }, { threshold: 0.1 });
+
+    }, {
+      threshold:0.1
+    });
+
     reveals.forEach(el => observer.observe(el));
 
-    // Mobile nav
+    // Mobile menu
+
     const toggle = document.getElementById('navToggle');
     const menu = document.getElementById('mobileMenu');
 
     toggle.addEventListener('click', () => {
+
       toggle.classList.toggle('open');
       menu.classList.toggle('open');
+
     });
 
-    function closeMobileMenu() {
+    function closeMobileMenu(){
+
       toggle.classList.remove('open');
       menu.classList.remove('open');
+
     }
 
-    // Nav scroll shadow
+    // Nav border scroll
+
     window.addEventListener('scroll', () => {
+
       document.querySelector('nav').style.borderBottomColor =
-        window.scrollY > 40 ? 'rgba(26,24,20,0.18)' : 'rgba(26,24,20,0.08)';
+        window.scrollY > 40
+          ? 'rgba(26,24,20,0.18)'
+          : 'rgba(26,24,20,0.08)';
+
     });
 
-    // Contact form
-    // Contact form — Formspree integration
-    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    // CONTACT FORM FIXED
+
+    const form = document.getElementById('contactForm');
+
+    form.addEventListener('submit', async function(e){
+
       e.preventDefault();
-      const btn = this.querySelector('.form-btn');
+
+      const btn = form.querySelector('.form-btn');
+
       const successMsg = document.getElementById('formSuccess');
       const errorMsg = document.getElementById('formError');
- 
+
       btn.textContent = 'Sending...';
       btn.disabled = true;
+
       successMsg.style.display = 'none';
-      if (errorMsg) errorMsg.style.display = 'none';
- 
-      try {
-        fetch("https://formspree.io/f/xqenvwzw", {
-        method: "POST",
-        body: JSON.stringify({ name: "Test", email: "test@test.com", message: "hello" }),
-        headers: { "Accept": "application/json", "Content-Type": "application/json" }
-        }).then(r => r.json()).then(console.log)
- 
-        if (response.ok) {
+      errorMsg.style.display = 'none';
+
+      try{
+
+        const formData = new FormData(form);
+
+        const response = await fetch(form.action, {
+
+          method: form.method,
+          body: formData,
+
+          headers:{
+            Accept:'application/json'
+          }
+
+        });
+
+        if(response.ok){
+
           successMsg.style.display = 'block';
-          this.reset();
+
+          form.reset();
+
         } else {
-          const data = await response.json();
-          throw new Error(data.errors ? data.errors.map(e => e.message).join(', ') : 'Submission failed');
+
+          throw new Error('Submission failed');
+
         }
-      } catch (err) {
-        if (errorMsg) {
-          errorMsg.textContent = '✕ Something went wrong. Please email me directly.';
-          errorMsg.style.display = 'block';
-        }
+
+      } catch(error){
+
+        errorMsg.textContent =
+          '✕ Something went wrong. Please email me directly.';
+
+        errorMsg.style.display = 'block';
+
       } finally {
+
         btn.textContent = 'Send Message';
         btn.disabled = false;
+
       }
+
     });
 
-     lucide.createIcons();
+    // Icons
+
+    lucide.createIcons();
+
   </script>
+
 </body>
 </html>
